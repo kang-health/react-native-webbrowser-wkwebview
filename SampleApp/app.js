@@ -1,9 +1,9 @@
 'use strict';
 
 import React, {
-    Component,
-    View
-} from 'react-native';
+    Component
+} from 'react';
+import { View } from 'react-native';
 
 import Webbrowser from 'react-native-webbrowser'
 
