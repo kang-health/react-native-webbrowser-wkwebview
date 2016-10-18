@@ -1,10 +1,10 @@
 'use strict';
 
-import React from 'react-native';
-var {
+import React, { Component as BaseComponent } from 'react';
+import {
     TextInput,
     View,
-    } = React;
+	} from 'react-native';
 
 import BaseComponent from './BaseComponent'
 import styles from './styles'
@@ -51,4 +51,3 @@ StatusBar.defaultProps = {
 };
 
 module.exports = StatusBar;
-
