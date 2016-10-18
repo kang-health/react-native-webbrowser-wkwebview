@@ -6,9 +6,6 @@ import {
   View,
 } from 'react-native';
 
-
-		import
-
 import BaseComponent from './BaseComponent'
 import Utils from './Utils'
 import styles from './styles'
