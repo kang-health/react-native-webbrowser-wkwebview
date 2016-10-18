@@ -1,6 +1,6 @@
 'use strict';
 
-import React, { Component as BaseComponent } from 'react';
+import React from 'react';
 import {
     TextInput,
     View,
