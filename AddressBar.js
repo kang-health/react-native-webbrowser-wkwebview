@@ -65,7 +65,7 @@ class AddressBar extends BaseComponent {
                     onSubmitEditing={this.onSubmitEditing}
                     onChange={this.handleTextInputChange}
                     clearButtonMode="while-editing"
-                    style={[styles.addressBarTextInput, this.props.foregroundColor && {color:this.props.foregroundColor}]}
+                    style={[styles.addressBarTextInput, this.props.inputColor && {color:this.props.inputColor}]}
                 />
             </View>
         );
@@ -76,7 +76,8 @@ AddressBar.propTypes = {
     url: React.PropTypes.string,
     onLoad: React.PropTypes.func,
     onReload: React.PropTypes.func,
-    foregroundColor: React.PropTypes.string
+    foregroundColor: React.PropTypes.string,
+    inputColor: React.PropTypes.string
 };
 
 AddressBar.defaultProps = {
