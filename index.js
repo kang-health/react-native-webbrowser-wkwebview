@@ -40,6 +40,7 @@ const defaultProps = {
     hideActivityIndicator: false,
     onNavigationStateChange: ()=>{},
     onShouldStartLoadWithRequest: ()=>true,
+    style: {}
 }
 
 class Webbrowser extends BaseComponent {
@@ -121,7 +122,7 @@ class Webbrowser extends BaseComponent {
 
     render() {
         return (
-            <View style={[styles.container, this.props.backgroundColor && {backgroundColor: this.props.backgroundColor}]}>
+            <View style={[styles.container, this.props.backgroundColor && {backgroundColor: this.props.backgroundColor}, this.props.style]}>
                 <View style={styles.header}>
                     {this.renderAddressBar()}
                     {this.renderStatusBar()}
