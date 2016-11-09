@@ -37,10 +37,11 @@ export default StyleSheet.create({
         borderColor: 'transparent',
         borderRadius: 3,
         borderWidth: 1,
-        height: 24,
+        height: 35,
         paddingLeft: 10,
         flex: 1,
         fontSize: 14,
+        marginBottom:5
     },
     navButton: {
         width: 20,
@@ -55,12 +56,13 @@ export default StyleSheet.create({
     statusBar: {
         marginLeft:ELEMENT_MARGIN,
         marginRight:ELEMENT_MARGIN,
-        height: 22,
+        height: 35,
     },
     statusBarText: {
         flex:1,
         color: 'white',
-        fontSize: 10,
+        fontSize: 14,
+        textAlign:'center',
     },
     spinner: {
         width: 20,
@@ -73,14 +75,14 @@ export default StyleSheet.create({
         shadowRadius:SHADOW_RADIUS,
         shadowOffset: { height:0, width: 0 },
         flexDirection:'row',
-        justifyContent:'space-around',
+        justifyContent:'flex-start',
         paddingTop:ELEMENT_MARGIN,
         paddingBottom:ELEMENT_MARGIN
     },
 
     toolBarIcons: {
-        width:20,
-        height:20,
-        opacity: 0.9
+        width:30,
+        height:30,
+        opacity: 1
     }
 });

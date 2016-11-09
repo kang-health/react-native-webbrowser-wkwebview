@@ -40,14 +40,22 @@ class Toolbar extends BaseComponent {
             return <View/>
         }
 
+        let homeButtonComponent = (
+            <Image
+                style={this.buttonStyle()}
+                source={require('./assets/images/home-outline.png')}
+            />
+        );
+
+        if (this.props.renderHomeButton) {
+            homeButtonComponent = this.props.renderHomeButton(this.buttonStyle());
+        }
+
         return (
             <Button
                 disabled={!this.state.homeButtonEnabled}
                 onPress={this.state.onHome}>
-                <Image
-                    style={this.buttonStyle()}
-                    source={require('./assets/images/home-outline.png')}
-                />
+                {homeButtonComponent}
             </Button>
         );
     }
@@ -60,25 +68,31 @@ class Toolbar extends BaseComponent {
         return (
             <View style={styles.toolBar}>
 
-                <Button
-                    disabled={!this.state.backButtonEnabled}
-                    onPress={this.state.onBack}>
-                    <Image
-                        style={this.buttonStyle()}
-                        source={require('./assets/images/arrow-left.png')}
-                    />
-                </Button>
+                <View style={{flex:1, flexDirection:'row'}}>
+                    <Button
+                            disabled={!this.state.backButtonEnabled}
+                            onPress={this.state.onBack}>
+                        <Image
+                                style={this.buttonStyle()}
+                                source={require('./assets/images/arrow-left.png')}
+                                />
+                    </Button>
 
-                {this.renderHomeButton()}
+                    <Button
+                            disabled={!this.state.forwardButtonEnabled}
+                            onPress={this.state.onForward}>
+                        <Image
+                                style={this.buttonStyle()}
+                                source={require('./assets/images/arrow-right.png')}
+                                />
+                    </Button>
+                </View>
 
-                <Button
-                    disabled={!this.state.forwardButtonEnabled}
-                    onPress={this.state.onForward}>
-                    <Image
-                        style={this.buttonStyle()}
-                        source={require('./assets/images/arrow-right.png')}
-                    />
-                </Button>
+                <View style={{flex:1, flexDirection:'row', justifyContent:'flex-end'}}>
+                    {this.renderHomeButton()}
+                </View>
+
+
             </View>
         );
     }

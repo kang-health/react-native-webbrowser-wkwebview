@@ -103,6 +103,11 @@ Button.propTypes = {
 
 var styles = StyleSheet.create({
     button: {
+        width:50,
+        height:40,
+        justifyContent:'center',
+        alignItems:'center',
+        marginRight:10
     },
     textButton: {
         fontSize: 18,
@@ -112,7 +117,7 @@ var styles = StyleSheet.create({
         alignSelf: 'center'
     },
     opacity: {
-        opacity: 0.5
+        opacity: 0.1
     }
 });
 

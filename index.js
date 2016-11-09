@@ -28,6 +28,8 @@ const propTypes = {
     foregroundColor: PropTypes.string,
     backgroundColor: PropTypes.string,
     onNavigationStateChange: PropTypes.func,
+    renderHomeButton: PropTypes.func,
+    onActionButton: PropTypes.func,
     onShouldStartLoadWithRequest: PropTypes.func
 }
 
@@ -37,6 +39,8 @@ const defaultProps = {
     hideAddressBar: false,
     hideStatusBar: false,
     hideHomeButton: false,
+    renderHomeButton: null,
+    onActionButton: null,
     hideActivityIndicator: false,
     onNavigationStateChange: ()=>{},
     onShouldStartLoadWithRequest: ()=>true,
@@ -117,6 +121,8 @@ class Webbrowser extends BaseComponent {
             forwardButtonEnabled={this.state.forwardButtonEnabled}
             hideHomeButton={this.props.hideHomeButton}
             foregroundColor={this.props.foregroundColor}
+            renderHomeButton={this.props.renderHomeButton}
+            onActionButton={this.props.onActionButton}
         />;
     }
 
@@ -124,8 +130,8 @@ class Webbrowser extends BaseComponent {
         return (
             <View style={[styles.container, this.props.backgroundColor && {backgroundColor: this.props.backgroundColor}, this.props.style]}>
                 <View style={styles.header}>
-                    {this.renderAddressBar()}
                     {this.renderStatusBar()}
+                    {this.renderAddressBar()}
                 </View>
                 <WebView
                     ref={WEBVIEW_REF}
@@ -155,7 +161,11 @@ class Webbrowser extends BaseComponent {
     }
 
     goHome() {
-        this.load(this.props.url);
+        if (this.props.onActionButton) {
+            this.props.onActionButton(this.props.url, this.load.bind(this));
+        } else {
+            this.load(this.props.url);
+        }
     }
 
     load(url) {
