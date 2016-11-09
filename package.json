@@ -24,7 +24,7 @@
     "react-component"
   ],
   "author": "Daniel Korger <dan@imake.io> (https://imake.io)",
-  "contributors": ["JRK"],
+  "contributors": ["ganmor", "JRK"],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jreziga/react-native-webbrowser-enhanced/issues"
