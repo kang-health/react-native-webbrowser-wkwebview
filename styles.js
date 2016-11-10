@@ -1,13 +1,22 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 const HEADER = '#3b5998';
-const BGWASH = 'rgba(255,255,255,0.8)';
+const BGWASH = 'rgba(255,255,255,1)';
 const ELEMENT_MARGIN = 8;
 const SHADOW_COLOR = '#333';
 const SHADOW_OPACITY = 0.4;
 const SHADOW_RADIUS = 1;
 
-export default StyleSheet.create({
+
+const isAndroid = function() {
+    return Platform.OS === 'android';
+};
+
+const isIOS = function() {
+    return Platform.OS === 'ios';
+};
+
+let styleobj = {
     container: {
         flex: 1,
         backgroundColor: HEADER,
@@ -33,14 +42,13 @@ export default StyleSheet.create({
         height: 350,
     },
     addressBarTextInput: {
-        backgroundColor: BGWASH,
-        borderColor: 'transparent',
+        backgroundColor: 'white',
         borderRadius: 3,
-        borderWidth: 1,
-        height: 35,
+        height: isAndroid() ? 40 : 35,
         paddingLeft: 10,
         flex: 1,
         fontSize: 14,
+        paddingTop: isAndroid() ? 10 : 0,
         marginBottom:5
     },
     navButton: {
@@ -76,13 +84,26 @@ export default StyleSheet.create({
         shadowOffset: { height:0, width: 0 },
         flexDirection:'row',
         justifyContent:'flex-start',
-        paddingTop:ELEMENT_MARGIN,
-        paddingBottom:ELEMENT_MARGIN
+        paddingTop:isAndroid() ? 5 : ELEMENT_MARGIN,
+        paddingBottom:isAndroid() ? 20 : ELEMENT_MARGIN
     },
 
     toolBarIcons: {
+        width:50,
+        height:40,
+        justifyContent:'center',
+        alignItems:'center',
+        marginRight:10,
+        opacity:1
+    }
+}
+
+if (isIOS()) {
+    styleobj['toolBarIcons'] = {
         width:30,
         height:30,
         opacity: 1
-    }
-});
+    };
+}
+
+export default StyleSheet.create(styleobj);

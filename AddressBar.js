@@ -1,10 +1,11 @@
+
 'use strict';
 
 import React from 'react';
 import {
-  TextInput,
-  View,
-} from 'react-native';
+        TextInput,
+        View,
+        } from 'react-native';
 
 import BaseComponent from './BaseComponent'
 import Utils from './Utils'
@@ -24,8 +25,8 @@ class AddressBar extends BaseComponent {
         };
 
         this._bind(
-            'handleTextInputChange',
-            'onSubmitEditing'
+                'handleTextInputChange',
+                'onSubmitEditing'
         );
     }
 
@@ -57,17 +58,18 @@ class AddressBar extends BaseComponent {
 
     render() {
         return (
-            <View style={[styles.addressBarRow]}>
-                <TextInput
-                    ref={TEXT_INPUT_REF}
-                    autoCapitalize="none"
-                    defaultValue={this.state.url}
-                    onSubmitEditing={this.onSubmitEditing}
-                    onChange={this.handleTextInputChange}
-                    clearButtonMode="while-editing"
-                    style={[styles.addressBarTextInput, this.props.inputColor && {color:this.props.inputColor}]}
-                />
-            </View>
+                <View style={[styles.addressBarRow]}>
+                    <TextInput
+                            ref={TEXT_INPUT_REF}
+                            autoCapitalize="none"
+                            defaultValue={this.state.url}
+                            onSubmitEditing={this.onSubmitEditing}
+                            onChange={this.handleTextInputChange}
+                            clearButtonMode="while-editing"
+                            underlineColorAndroid="white"
+                            style={[styles.addressBarTextInput, this.props.inputColor && {color:this.props.inputColor}]}
+                            />
+                </View>
         );
     }
 }
