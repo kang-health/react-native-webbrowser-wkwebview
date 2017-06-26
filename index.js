@@ -2,9 +2,9 @@
 
 import React, { PropTypes } from 'react';
 import {
-  WebView,
   View,
 } from 'react-native';
+import WKWebView from 'react-native-wkwebview-reborn';
 
 import BaseComponent from './BaseComponent'
 import Utils from './Utils'
@@ -133,8 +133,8 @@ class Webbrowser extends BaseComponent {
                     {this.renderStatusBar()}
                     {this.renderAddressBar()}
                 </View>
-                <WebView
-                    ref={WEBVIEW_REF}
+                <WKWebView
+                    ref={(c) => {this[WEBVIEW_REF] = c}}
                     automaticallyAdjustContentInsets={false}
                     style={styles.webView}
                     source={{uri: this.state.url}}
@@ -153,11 +153,11 @@ class Webbrowser extends BaseComponent {
     }
 
     goBack() {
-        this.refs[WEBVIEW_REF].goBack();
+        this[WEBVIEW_REF].goBack();
     }
 
     goForward() {
-        this.refs[WEBVIEW_REF].goForward();
+        this[WEBVIEW_REF].goForward();
     }
 
     goHome() {
@@ -175,7 +175,7 @@ class Webbrowser extends BaseComponent {
     }
 
     reload() {
-        this.refs[WEBVIEW_REF].reload();
+        this[WEBVIEW_REF].reload();
     }
 
     onShouldStartLoadWithRequest(event) {
