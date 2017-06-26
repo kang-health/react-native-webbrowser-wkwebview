@@ -1,5 +1,5 @@
 {
-  "name": "react-native-webbrowser-enhanced",
+  "name": "react-native-webbrowser-wkwebview",
   "version": "0.0.11",
   "description": "A cross-platform (iOS / Android), full-featured in-app web browser component for React Native that is highly customizable",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jreziga/react-native-webbrowser-enhanced.git"
+    "url": "git+https://github.com/JodiWarren/react-native-webbrowser-wkwebview.git"
   },
   "keywords": [
     "webview",
@@ -30,10 +30,11 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jreziga/react-native-webbrowser-enhanced/issues"
+    "url": "https://github.com/JodiWarren/react-native-webbrowser-wkwebview/issues"
   },
-  "homepage": "https://github.com/jreziga/react-native-webbrowser-enhanced#readme",
+  "homepage": "https://github.com/JodiWarren/react-native-webbrowser-wkwebview#readme",
   "dependencies": {
-    "react-native-loading-spinner-overlay": "0.3.0"
+    "react-native-loading-spinner-overlay": "0.3.0",
+    "react-native-wkwebview-reborn": "^1.6.0"
   }
 }
