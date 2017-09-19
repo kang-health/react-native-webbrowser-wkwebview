@@ -3,6 +3,8 @@
 import React, { PropTypes } from 'react';
 import {
   View,
+  WebView,
+  Platform,
 } from 'react-native';
 import WKWebView from 'react-native-wkwebview-reborn';
 
@@ -15,6 +17,8 @@ import styles from './styles'
 import StatusBar from './StatusBar'
 import AddressBar from './AddressBar'
 import Toolbar from './Toolbar'
+
+const WebViewComponent = Platform.OS === 'ios' ? WKWebView : WebView
 
 const WEBVIEW_REF = 'webview';
 
@@ -133,7 +137,7 @@ class Webbrowser extends BaseComponent {
                     {this.renderStatusBar()}
                     {this.renderAddressBar()}
                 </View>
-                <WKWebView
+                <WebViewComponent
                     ref={(c) => {this[WEBVIEW_REF] = c}}
                     automaticallyAdjustContentInsets={false}
                     style={styles.webView}
